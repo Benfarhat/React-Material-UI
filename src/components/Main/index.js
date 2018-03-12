@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Typography } from 'material-ui'
+import { Grid, Typography, Paper } from 'material-ui'
 import RightPane from './RightPane'
 import LeftPane from './LeftPane'
 
@@ -16,9 +16,9 @@ export default class Main extends Component {
         return (
             <Grid container>
                 <Grid item sm={6}>
-                    <LeftPane style={style.Paper}>
+                    <Paper style={style.Paper}>
                         {this.props.prestations.map(prestation => (<Typography variant="body1" key={prestation.id} gutterBottom align="right">{prestation.title}</Typography>))}
-                    </LeftPane>
+                    </Paper>
                 </Grid>
                 <Grid item sm={6}>
                     <RightPane style={style.Paper}>
