@@ -21,9 +21,10 @@ export default class Main extends Component {
                     </Paper>
                 </Grid>
                 <Grid item sm={6}>
-                    <RightPane style={style.Paper}>
-                        Right
-                    </RightPane>
+                    <Paper style={style.Paper}>
+                        <Typography variant="title">Welcome</Typography>
+                        <Typography variant="body1">Please choose a category or a service / prestation</Typography>
+                    </Paper>
                 </Grid>
             </Grid>
         )
