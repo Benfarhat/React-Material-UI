@@ -17,7 +17,9 @@ class CenteredTabs extends React.Component {
   };
 
   handleChange = (event, value) => {
-    this.setState({ value });
+      console.log(this.props.domains[value])
+      this.setState({ value });
+      this.props.setCurrentDomain(this.props.domains[value])
   };
 
   render() {
@@ -32,7 +34,7 @@ class CenteredTabs extends React.Component {
           textColor="primary"
           centered
         >
-          <Tab label="All" />
+          <Tab key="All" label="All" />
           { this.props.domains.map(domain=> (<Tab key={domain} label={domain} />))}
           
         </Tabs>

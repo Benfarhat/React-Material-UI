@@ -7,23 +7,37 @@ import './App.css';
 
 class App extends Component {
   state = {
-    prestations
+    prestations,
+    currentDomain: 'All'
   }
 
-  getPrestationsByDomains(domain = "All"){
+  setCurrentDomain = domain => {
+    
+    console.log("set domain to:", domain)
+    this.changeState(domain)
+  }
+  changeState(domain){
+    this.setState({
+      currentDomain: domain 
+    })
+  }
+  getPrestationsByDomains(){
+    let domain = this.state.currentDomain
     if(domain === "All"){
       return this.state.prestations
     } else {
       return this.state.prestations.filter(prestation => (prestation.domain === domain) )  }
     }
 
+
+
+
   render() {
-    console.log(this.getPrestationsByDomains("prestation-4"))
     return (
       <Fragment>
         <Header />
-        <Main />
-        <Footer domains={domains}/>
+        <Main prestations={this.getPrestationsByDomains()}/>
+        <Footer domains={domains} setCurrentDomain={this.setCurrentDomain}/>
       </Fragment>
     );
   }
